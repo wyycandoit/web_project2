@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25216950203_翁颖颖_音乐播放器</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="icons/iconfont.css">
+</head>
+
+<body>
+    <!-- 上半部分：唱片+文字 -->
+    <div class="upper">
+        <!-- 上左半部分：唱片 -->
+        <div class="left-area">
+            <div class="left">
+                <div class="img">
+                </div>
+            </div>
+        </div>
+        <!-- 上右半部分：文字 -->
+        <div class="right-area">
+            <div class="right">
+                <div class="title">
+                    <h1>歌曲1</h1>
+                </div>
+                <span>作者：翁颖颖1</span>
+            </div>
+        </div>
+    </div>
+    <!-- 下半部分：进度条+各个控制按钮 -->
+    <div class="bottom">
+        <!-- 进度条 -->
+        <div class="progress-bar">
+            <!-- 进度条背景 -->
+            <div class="progress-bg">
+                <!-- 已播放进度 -->
+                <div class="progress-played"></div>
+                <!-- 进度拖拽点 -->
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        <!-- 控制按钮 -->
+        <div class="all-button">
+            <div class="left-time">
+                <span class="current-time">00:00</span>
+                <span class="slash">—</span>
+                <span class="total-time">00:00</span>
+            </div>
+            <div class="middle">
+                <!-- 单曲循环/列表循环 -->
+                <span class="iconfont icon-_danqubofangyici"></span>
+                <!-- 上一曲 -->
+                <span class="iconfont icon-icon_shangyishou"></span>
+                <!-- 播放/暂停 -->
+                <span class="iconfont icon-bofang1"></span>
+                <!-- 下一曲 -->
+                <span class="iconfont icon-icon_xiayishou"></span>
+                <!-- 音量 -->
+                <span class="iconfont icon-shengyin"></span>
+                <!-- 音量的进度条 -->
+                <div class="volume-progress-bar">
+                    <div class="volume-progress-bg">
+                        <div class="volume-progress-played"></div>
+                        <div class="volume-progress-dot"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-button">
+                <span class="mv-icon">
+                    <img src="img/MV.png">
+                </span>
+                <span class="iconfont icon-bofangheji"></span>
+                <span class="playback-rate" data-rate="1.0">1.00x</span>
+            </div>
+        </div>
+    </div>
+
+    <audio class="audio1" src="mp3/music0.mp3"></audio>
+    <audio class="audio2" src="mp3/music1.mp3"></audio>
+    <audio class="audio3" src="mp3/music2.mp3"></audio>
+
+
+    <!-- 歌单选择弹窗 -->
+    <div class="playlist-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🎵 音乐菜单</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <ul class="song-list">
+                <li class="song-item" data-index="0">
+                    <span class="song-title">歌曲1</span>
+                    <span class="song-artist">翁颖颖1</span>
+                </li>
+                <li class="song-item" data-index="1">
+                    <span class="song-title">歌曲2</span>
+                    <span class="song-artist">翁颖颖2</span>
+                </li>
+                <li class="song-item" data-index="2">
+                    <span class="song-title">歌曲3</span>
+                    <span class="song-artist">翁颖颖3</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- MV播放弹窗 -->
+    <div class="mv-modal">
+        <div class="mv-modal-content">
+            <span class="close-mv">&times;</span>
+            <video class="mv-player" controls>
+                <source src="" type="video/mp4">
+                您的浏览器不支持HTML5视频播放，请升级浏览器！
+            </video>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+
+</html>

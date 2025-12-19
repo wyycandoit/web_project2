@@ -1,0 +1,374 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 设置整个的背景图片和颜色 */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: url(img/bg1.png) no-repeat center/cover;
+    backdrop-filter: blur(10px);
+}
+
+/* 上半部分 */
+.upper {
+    /* 上半占据剩余的全部 */
+    flex: 0.9;
+    /* flex布局默认主轴方向：从左往右 */
+    display: flex;
+}
+
+/* 下半部分*/
+.bottom {
+    flex: 0.1;
+}
+
+/* 上左半部分 */
+.left-area {
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 上左半部分里面的唱片 */
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    border-radius: 500px;
+    background-color: black;
+}
+
+.img {
+    /* margin: 50px; 让唱片在黑色圈圈里面居中对齐，可以在.left里面加flex布局，也可以直接加一个外边距*/
+    width: 300px;
+    height: 300px;
+    border-radius: 300px;
+    background: url(img/bg1.png) no-repeat center/cover;
+    /* 使得图片旋转 */
+    animation: spin 10s linear infinite;
+}
+
+/* 上右半部分 */
+.right-area {
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* 上右半部分里面的文字 */
+.right h1 {
+    font-size: 50px;
+}
+
+.right span {
+    font-size: 30px;
+}
+
+/* 下半部分开始 */
+
+/* 下半部分的长进度条：*/
+/* 进度条背景 */
+div.progress-bg {
+    position: relative;
+    margin: 0 15px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+/* 已播放进度 */
+div.progress-played {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    border-radius: 2px;
+    background-color: #7bd1a1;
+}
+
+/* 进度拖拽点 */
+div.progress-dot {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* 下半部分按钮 */
+.all-button {
+    display: flex;
+    margin: 20px 15px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    color: #ddd;
+}
+
+/* 让这三个部分都水平居中对齐 */
+.left .middle,
+.middle,
+.right-button {
+    display: flex;
+    align-items: center;
+}
+
+/* 左边的时间 */
+.current-time,
+span.slash,
+.total-time {
+    padding: 0;
+    text-align: center;
+    line-height: 30px;
+}
+
+/* 中间的一堆图标 */
+/* 全部都设置成鼠标移动上去就变可点击*/
+span.iconfont {
+    cursor: pointer;
+    padding: 0 5px;
+    color: #e6e6e6;
+}
+
+/* 单曲循环+循环播放的大小*/
+.middle .icon-_danqubofangyici {
+    font-size: 29px;
+}
+
+.middle .icon-xunhuan {
+    font-size: 28px;
+}
+
+/* 上一曲、下一曲的大小 */
+.middle .icon-icon_shangyishou,
+.middle .icon-icon_xiayishou {
+    font-size: 27px;
+}
+
+/* 播放/暂停按钮的大小 */
+.middle .icon-bofang1,
+.middle .icon-zanting {
+    font-size: 35px;
+}
+
+/* 音量+音量进度条的大小 */
+.middle .icon-shengyin,
+.middle .icon-jingyin {
+    font-size: 21px;
+}
+
+/* 音量进度条背景 */
+.volume-progress-bg {
+    position: relative;
+    margin-left: 10px;
+    width: 100px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #ddd;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+/* 已播放进度 */
+.volume-progress-played {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #7bd1a1;
+}
+
+/* 进度拖拽点 */
+.volume-progress-dot {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -40%);
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* 最右边那个音乐合集 的大小 */
+.right-button .icon-bofangheji {
+    padding-top: 3px;
+    font-size: 20px;
+}
+
+/* MV图标的大小 */
+.right-button .mv-icon img {
+    padding: 5px 5px 0px;
+    width: 25px;
+}
+
+/* 使得倍速按钮鼠标移动到上面就变成小手 */
+[data-rate],
+.right-button .mv-icon img {
+    cursor: pointer;
+}
+
+
+/* 歌单弹窗样式 */
+.playlist-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: rgba(78, 122, 138, 0.474);
+    width: 300px;
+    border-radius: 15px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: white;
+    font-size: 18px;
+}
+
+/* 歌单弹窗头部的样式 */
+.close-modal {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+/* 右上角的关闭按钮 */
+.close-modal:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.song-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.song-item {
+    padding: 15px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s;
+}
+
+.song-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.song-item:last-child {
+    border-bottom: none;
+}
+
+.song-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.song-artist {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+
+/* MV弹窗样式 */
+.mv-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.mv-modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 1000px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.close-mv {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.2s ease;
+}
+
+.close-mv:hover {
+    color: #ff6b6b;
+    transform: scale(1.1);
+}
+
+.mv-player {
+    width: 100%;
+    height: auto;
+    outline: none;
+    background: #000;
+}
